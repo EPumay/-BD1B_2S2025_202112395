@@ -7,8 +7,10 @@ services:
     environment:
       - ORACLE_USER=${ORACLE_USER}
       - ORACLE_PASSWORD=${ORACLE_PASSWORD}
+      - DB_USER=evelyn
+      - DB_PASSWORD=oracle123
     volumes:
-      - oracle-volume:/opt/oracle/oradata0
+      - oracle-volume:/opt/oracle/oradata
       - ./oracle-init:/container-entrypoint-initdb.d:ro
 volumes:
   oracle-volume:

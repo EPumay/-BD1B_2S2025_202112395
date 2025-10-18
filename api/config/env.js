@@ -5,7 +5,7 @@ dotenv.config();
 const env = {
     PORT: process.env.PORT || 3000,
     ORACLE_PASSWORD: process.env.ORACLE_PASSWORD || 'oracle123',
-    ORACLE_USER: process.env.ORACLE_USER || 'SYSTEM',
+    ORACLE_USER: process.env.ORACLE_USER || 'system',
     DB_HOST: process.env.DB_HOST || 'localhost',
     DB_PORT: process.env.DB_PORT || '1521',
 };

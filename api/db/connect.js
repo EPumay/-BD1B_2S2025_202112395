@@ -6,7 +6,7 @@ export async function connectToDb() {
         const connection = await OracleDB.getConnection({
             user: config.ORACLE_USER,
             password: config.ORACLE_PASSWORD,
-            connectString: "localhost/xe"
+            connectString: "localhost:1521/XEPDB1"
         });
         return connection;
     }
