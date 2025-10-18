@@ -27,6 +27,41 @@ Este servicio utiliza la imagen `gvenzl/oracle-xe:latest`, una versión ligera d
 
 El volumen `oracle-volume` asegura que los datos almacenados en Oracle se mantengan persistentes entre reinicios o recreaciones del contenedor.
 
+### Archivo `.env`
+
+El archivo `.env` debe estar ubicado en la raíz del proyecto y contener:
+
+```
+ORACLE_USER=admin
+ORACLE_PASSWORD=admin
+```
+
+Estas variables son consumidas por el contenedor en tiempo de ejecución.
+
+### Comando de despliegue
+
+El sistema se levanta utilizando el siguiente comando:
+
+```bash
+docker-compose up -d
+```
+
+Este comando:
+
+* Lanza el contenedor de Oracle XE en segundo plano.
+* Monta los volúmenes requeridos.
+* Ejecuta automáticamente los scripts de inicialización en la carpeta `oracle-init/`.
+* Deja la base de datos disponible para conexiones locales en `localhost:1521`.
+
+Si es necesario reconstruir o reiniciar el entorno desde cero, se puede utilizar:
+
+```bash
+docker-compose down -v
+```
+
+Este comando elimina el contenedor y sus volúmenes asociados, lo que reinicializa la base de datos en el siguiente `up`.
+
+
 ---
 
 ## API REST
